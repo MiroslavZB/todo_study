@@ -13,6 +13,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  late ScrollController scrollController;
+
   @override
   void initState() {
     super.initState();
@@ -20,10 +23,18 @@ class _HomePageState extends State<HomePage> {
       context,
       listen: false,
     );
+    scrollController = ScrollController();
     controller.fetchTodos();
   }
 
-  final ScrollController scrollController = ScrollController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    // TODO: implement dispose
+    scrollController.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {

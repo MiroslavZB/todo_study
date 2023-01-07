@@ -22,6 +22,7 @@ class TodoController extends ChangeNotifier {
 
   void resetIsDone() {
     isDone = false;
+    notifyListeners();
   }
 
   get listTodos => _listTodos;
