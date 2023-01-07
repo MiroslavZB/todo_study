@@ -8,7 +8,7 @@ class TodoController extends ChangeNotifier {
   bool isDone = false;
 
   Future fetchTodos() async {
-    resetIsDone();
+    isDone = false;
     final parsed = await Client.get();
     if (parsed is! List) {
       return;
@@ -17,11 +17,6 @@ class TodoController extends ChangeNotifier {
       _listTodos.add(Todo.fromJson(json));
     }
     isDone = true;
-    notifyListeners();
-  }
-
-  void resetIsDone() {
-    isDone = false;
     notifyListeners();
   }
 

@@ -19,14 +19,13 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    scrollController = ScrollController();
     final controller = Provider.of<TodoController>(
       context,
       listen: false,
     );
-    scrollController = ScrollController();
     controller.fetchTodos();
   }
-
 
   @override
   void dispose() {
